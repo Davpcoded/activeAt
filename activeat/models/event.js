@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Event = new Schema({
+const event = new Schema({
   eventCreator: {
       type: String,
       trim: true,
@@ -40,6 +40,6 @@ const Event = new Schema({
   array: Array,
 });
 
-const Event = mongoose.model("Event", Event);
+const Event = mongoose.model("Event", event);
 
 module.exports = Event;
