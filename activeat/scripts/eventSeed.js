@@ -10,9 +10,33 @@ mongoose.connect(
 
 const eventSeed = [
   {
-    eventCreator: "John Smith",
-    eventName: "Ultimate Baking",
-    eventDescription: "Bake Pie or Die!",
+    eventCreator: "Darryl Williams",
+    eventName: "Basketball",
+    eventDescription: "Let's play basketball",
+    eventType: [],
+    eventLocation: "555 My Steet",
+    eventDate: new Date(Date.now()),
+  },
+  {
+    eventCreator: "Nathan Bowdish",
+    eventName: "Bowling",
+    eventDescription: "Let's play bowling",
+    eventType: [],
+    eventLocation: "555 My Steet",
+    eventDate: new Date(Date.now()),
+  },
+  {
+    eventCreator: "Daniel Villarroel",
+    eventName: "Hicking",
+    eventDescription: "Let's go hicking",
+    eventType: [],
+    eventLocation: "555 My Steet",
+    eventDate: new Date(Date.now()),
+  },
+  {
+    eventCreator: "Sveta Demkovihc",
+    eventName: "Volleyball",
+    eventDescription: "Let's play volleyball",
     eventType: [],
     eventLocation: "555 My Steet",
     eventDate: new Date(Date.now()),
