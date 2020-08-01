@@ -1,138 +1,45 @@
 const router = require("express").Router();
 
-const db = require("../models/index")
+const db = require("../models");
 
-​
-​
-router.post("/api/user", ({body}, res) => {
-​
-  User.create(body)
-​
-    .then(dbTransaction => {
-​
-      res.json(dbTransaction);
-​
-    })
-​
-    .catch(err => {
-​
-      res.status(404).json(err);
-​
-    });
-​
-});
-​
-router.post("/api/event", ({body}, res) => {
-​
-    Event.create(body)
-  
-      .then(dbTransaction => {
-  
-        res.json(dbTransaction);
-  
-      })
-  
-      .catch(err => {
-  
-        res.status(404).json(err);
-  
-      });
-  
+router.get("/user", function (req, res) {
+  db.User.find({}, function (err, data) {
+    if (err) console.log(err);
+    else {
+      console.log(data);
+      res.send(data);
+    }
   });
-​
-​
-​
-router.put("/api/event", ({body}, res) => {
-​
-  Event.insertMany(body)
-​
-    .then(dbTransaction => {
-​
-      res.json(dbTransaction);
-​
-    })
-​
-    .catch(err => {
-​
-      res.status(404).json(err);
-​
-    });
-​
 });
-​
-router.put("/api/user", ({body}, res) => {
-​
-    User.insertMany(body)
-  
-      .then(dbTransaction => {
-  
-        res.json(dbTransaction);
-  
-      })
-  
-      .catch(err => {
-  
-        res.status(404).json(err);
-  
-      });
-  
+
+router.get("/event", function (req, res) {
+  db.Event.find({}, function (err, data) {
+    if (err) console.log(err);
+    else {
+      console.log(data);
+      res.send(data);
+    }
   });
-​
-  router.put("/api/event", ({body}, res) => {
-​
-    Event.insertMany(body)
-  
-      .then(dbTransaction => {
-  
-        res.json(dbTransaction);
-  
-      })
-  
-      .catch(err => {
-  
-        res.status(404).json(err);
-  
-      });
-  
-  });
-​
-​
-​
-router.get("/api/user", (req, res) => {
-​
-  User.find({}).sort({date: -1})
-​
-    .then(dbTransaction => {
-​
-      res.json(dbTransaction);
-​
-    })
-​
-    .catch(err => {
-​
-      res.status(404).json(err);
-​
-    });
-    
-router.get("/api/event", (req, res) => {
-​
-    Event.find({}).sort({date: -1})
-    
-        .then(dbTransaction => {
-    
-        res.json(dbTransaction);
-    
-        })
-    
-        .catch(err => {
-    
-        res.status(404).json(err);
-    
-        });
-    });
-​
 });
-​
-​
-​
+
+router.post("/user", ({ body }, res) => {
+  db.User.create(body)
+    .then((dbUser) => {
+      res.json(dbUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.post("/event", ({ body }, res) => {
+  db.User.create(body)
+    .then((dbUser) => {
+      res.json(dbUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;
