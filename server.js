@@ -3,12 +3,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 
-//const apiRoutes = require("./routes/api.js");
+//const apiRoutes = require("./routes/api");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
-//const User = require("./models/user");
-//const Event = require("./models/event");
+const User = require("./models/user");
+const Event = require("./models/event");
 
 const app = express();
 
@@ -31,10 +31,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ActiveAt", {
 //app.use("/api", apiRoutes);
 
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public//index.html"));
 });
 // Define API routes here
-/* app.get("/user", function (req, res) {
+app.get("/user", function (req, res) {
   User.find({}, function (err, data) {
     if (err) console.log(err);
     else {
@@ -72,7 +72,7 @@ app.post("/event", ({ body }, res) => {
     .catch((err) => {
       res.json(err);
     });
-}); */
+});
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
