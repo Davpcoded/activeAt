@@ -3,7 +3,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 
-const PORT = process.env.PORT || 3000;
+//const apiRoutes = require("./routes/api.js");
+
+const PORT = process.env.PORT || 3001;
 
 //const User = require("./models/user");
 //const Event = require("./models/event");
@@ -25,6 +27,12 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ActiveAt", {
   useCreateIndex: true,
 });
 
+// Use apiRoutes
+//app.use("/api", apiRoutes);
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
+});
 // Define API routes here
 /* app.get("/user", function (req, res) {
   User.find({}, function (err, data) {
@@ -64,13 +72,13 @@ app.post("/event", ({ body }, res) => {
     .catch((err) => {
       res.json(err);
     });
-});
+}); */
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
-*/
+
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
