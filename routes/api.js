@@ -1,150 +1,48 @@
 const router = require("express").Router();
 
 const db = require("../models")
-​/* 
 
-router.get("/api", (req, res) => {
-  // Use a regular expression to search titles for req.query.q
-  // using case insensitive match. https://docs.mongodb.com/manual/reference/operator/query/regex/index.html
-  db.Recipe.find({
-    title: { $regex: new RegExp(req.query.q, 'i')}
-  })
-    .then(recipes => res.json(recipes))
-    .catch(err => res.status(422).end());
-}); */
-/* const User = require("../models/user.js");
-const Event = require("../models/event.js"); */
-​
-​
-router.post("/api/user", ({body}, res) => {
-​
-  User.create(body)
-​
-    .then(dbTransaction => {
-​
-      res.json(dbTransaction);
-​
-    })
-​
-    .catch(err => {
-​
-      res.status(404).json(err);
-​
-    });
-​
-});
-​
-router.post("/api/event", ({body}, res) => {
-​
-    Event.create(body)
+
+router.get('/user', function(req, res) {
+     db.User.find({}, function(err, data){
+      if (err) console.log(err);
+      else {
+          console.log(data);
+          res.send(data);
+          }
+        });   
+      });
+
   
-      .then(dbTransaction => {
-  
-        res.json(dbTransaction);
-  
-      })
-  
-      .catch(err => {
-  
-        res.status(404).json(err);
-  
+  router.get('/event', function(req, res) {
+    db.Event.find({}, function(err, data){
+      if (err) console.log(err);
+      else {
+          console.log(data);
+          res.send(data);
+          }
+        });   
       });
   
-  });
-​
-​
-​
-router.put("/api/event", ({body}, res) => {
-​
-  Event.insertMany(body)
-​
-    .then(dbTransaction => {
-​
-      res.json(dbTransaction);
-​
-    })
-​
-    .catch(err => {
-​
-      res.status(404).json(err);
-​
-    });
-​
-});
-​
-router.put("/api/user", ({body}, res) => {
-​
-    User.insertMany(body)
-  
-      .then(dbTransaction => {
-  
-        res.json(dbTransaction);
-  
+
+  router.post("/user", ({ body }, res) => {
+    db.User.create(body)
+      .then(dbUser => {
+        res.json(dbUser);
       })
-  
       .catch(err => {
-  
-        res.status(404).json(err);
-  
+        res.json(err);
       });
-  
   });
-​
-  router.put("/api/event", ({body}, res) => {
-​
-    Event.insertMany(body)
-  
-      .then(dbTransaction => {
-  
-        res.json(dbTransaction);
-  
-      })
-  
-      .catch(err => {
-  
-        res.status(404).json(err);
-  
-      });
-  
-  });
-​
-​
-​
-router.get("/api/user", (req, res) => {
-​
-  User.find({}).sort({date: -1})
-​
-    .then(dbTransaction => {
-​
-      res.json(dbTransaction);
-​
+
+router.post("/event", ({ body }, res) => {
+  db.User.create(body)
+    .then(dbUser => {
+      res.json(dbUser);
     })
-​
     .catch(err => {
-​
-      res.status(404).json(err);
-​
+      res.json(err);
     });
-    
-router.get("/api/event", (req, res) => {
-​
-    Event.find({}).sort({date: -1})
-    
-        .then(dbTransaction => {
-    
-        res.json(dbTransaction);
-    
-        })
-    
-        .catch(err => {
-    
-        res.status(404).json(err);
-    
-        });
-    });
-​
 });
-​
-​
-​
-module.exports = router;
+
+module.exports = router

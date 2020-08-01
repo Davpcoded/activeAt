@@ -1,19 +1,12 @@
 const express = require("express");
-//const logger = require("morgan");
-const mongoose = require("mongoose");
 const path = require("path");
-
-//const apiRoutes = require("./routes/api.js");
-
 const PORT = process.env.PORT || 3001;
-
-//const User = require("./models/user");
-//const Event = require("./models/event");
-
 const app = express();
+const mongoose = require("mongoose");
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ActiveAT", { useNewUrlParser: true });
 
 // Define middleware here
-//app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
@@ -21,62 +14,16 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ActiveAt", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useCreateIndex: true,
-});
 
-// Use apiRoutes
-//app.use("/api", apiRoutes);
-
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-});
 // Define API routes here
-/* app.get("/user", function (req, res) {
-  User.find({}, function (err, data) {
-    if (err) console.log(err);
-    else {
-      console.log(data);
-      res.send(data);
-    }
-  });
-});
+const apiRoutes = require("./routes/api.js");
 
-app.get("/event", function (req, res) {
-  Event.find({}, function (err, data) {
-    if (err) console.log(err);
-    else {
-      console.log(data);
-      res.send(data);
-    }
-  });
-});
+app.use("/api", apiRoutes)
 
-app.post("/user", ({ body }, res) => {
-  User.create(body)
-    .then((dbUser) => {
-      res.json(dbUser);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
-
-app.post("/event", ({ body }, res) => {
-  User.create(body)
-    .then((dbUser) => {
-      res.json(dbUser);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-}); */
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 app.listen(PORT, () => {
