@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,6 +12,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Axios from "axios";
 
 function Copyright() {
   return (
@@ -48,17 +49,44 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [registerUsername, setRegisterUsername] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [data, setData] = useState(null);
+
+  const register = () => {
+    Axios({
+      method: "POST",
+      data: {
+        username: registerUsername,
+        password: registerPassword,
+      },
+      withCredentials: true,
+      url: "http://localhost:3001/api/user",
+    }).then((res) => console.log(res));
+  };
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          {/* <LockOutlinedIcon /> */}
-        </Avatar>
+        <Avatar className={classes.avatar}>{/* <LockOutlinedIcon /> */}</Avatar>
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
+        <div className="App">
+          <div>
+            <h1>Register</h1>
+            <input
+              placeholder="username"
+              onChange={(e) => setRegisterUsername(e.target.value)}
+            />
+            <input
+              placeholder="password"
+              onChange={(e) => setRegisterPassword(e.target.value)}
+            />
+            <button onClick={register}>Submit</button>
+          </div>
+        </div>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
