@@ -2,6 +2,14 @@ const router = require("express").Router();
 
 const db = require("../models")
 
+router.post('/login', (req,res) => {
+console.log(req.body)
+})
+
+
+router.post('/register', (req,res) => {
+   console.log(req.body)
+   })
 
 router.get('/user', function(req, res) {
      db.User.find({}, function(err, data){
