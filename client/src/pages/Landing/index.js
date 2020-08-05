@@ -81,12 +81,12 @@ export default function Album() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
+                  <Button href="/login" variant="contained" color="primary">
                     Login
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
+                  <Button href="/signup" variant="outlined" color="primary">
                     Sign Up
                   </Button>
                 </Grid>
@@ -107,18 +107,24 @@ export default function Album() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      3 on 3 B-Ball
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      Location: Seaside Park
+                    </Typography>
+                    <Typography>
+                      Date: 8/8/2020
+                    </Typography>
+                    <Typography>
+                      Time: 3pm
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      View
+                      Details
                     </Button>
                     <Button size="small" color="primary">
-                      Edit
+                      Sign Up
                     </Button>
                   </CardActions>
                 </Card>

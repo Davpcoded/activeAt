@@ -27,8 +27,9 @@ function Nav() {
     <Typography variant="h6" color="inherit" Wrap>
     ActiveAt
     </Typography>
-    <Button color="inherit">Login</Button>
-    <Button color="inherit">SignUp</Button>
+    <Button href="/login" color="inherit">Login</Button>
+    <Button href="/signup" color="inherit">SignUp</Button>
+    <Button href="eventCreation" color="inherit">Create Event</Button>
   </Toolbar>
 </AppBar>
 
