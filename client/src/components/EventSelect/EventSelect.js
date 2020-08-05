@@ -14,7 +14,7 @@ function EventSelect() {
 
   return (
     <Select value={age} onChange={handleChange} displayEmpty className={classes.selectEmpty} inputProps={{ 'aria-label': 'Without label' }} >
-        <MenuItem value="" disabled>Event Category</MenuItem>
+        <MenuItem value="" required>Event Category</MenuItem>
         <MenuItem value={10}>Tennis</MenuItem>
         <MenuItem value={20}>Bowling</MenuItem>
         <MenuItem value={30}>Football</MenuItem>
