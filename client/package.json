@@ -9,6 +9,9 @@
     "axios": "^0.19.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-geocode": "^0.2.1",
+    "react-google-autocomplete": "^1.2.6",
+    "react-google-maps": "^9.4.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^2.1.1"
   },
