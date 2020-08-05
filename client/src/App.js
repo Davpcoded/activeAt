@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/index";
 import SignUp from "./pages/SignUp/signUp";
 //import Home from './components/Home/Home'
 import Landing from "./pages/Landing/index";
-import EventCreation from './pages/EventCreation/EventCreation"
+import EventCreation from './pages/EventCreation/EventCreation'
 import Activitylist from "./pages/Activity/ActivityList"
 
 function App() {
