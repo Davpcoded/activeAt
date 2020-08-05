@@ -107,18 +107,24 @@ export default function Album() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      3 on 3 B-Ball
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      Location: Seaside Park
+                    </Typography>
+                    <Typography>
+                      Date: 8/8/2020
+                    </Typography>
+                    <Typography>
+                      Time: 3pm
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      View
+                      Details
                     </Button>
                     <Button size="small" color="primary">
-                      Edit
+                      Sign Up
                     </Button>
                   </CardActions>
                 </Card>
