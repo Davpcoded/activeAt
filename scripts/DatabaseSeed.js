@@ -34,7 +34,7 @@ const eventSeed = [
     eventDate: new Date(Date.now()),
   },
   {
-    eventCreator: "Sveta Demkovihc",
+    eventCreator: "Sveta Demkovich",
     eventName: "Volleyball",
     eventDescription: "Let's play volleyball",
     eventType: [],
