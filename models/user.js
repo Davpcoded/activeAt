@@ -2,17 +2,22 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const user = new Schema({
-  name: {
+  username: {
     type: String,
     trim: true,
     required: "String is Required",
   },
 
-  email: {
+  /*   email: {
     type: String,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
   },
-
+ */
+  password: {
+    type: Number,
+    required: true,
+  },
+  /* 
   phone: {
     type: Number,
     unique: true,
@@ -29,7 +34,7 @@ const user = new Schema({
     type: Number,
     required: true,
     validate: [({ length }) => length === 5, "Zip Code should be 5 digits."],
-  },
+  }, */
 
   boolean: Boolean,
 

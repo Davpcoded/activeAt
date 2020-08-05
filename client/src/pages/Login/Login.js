@@ -74,7 +74,7 @@ export default function SignInSide() {
         password: loginPassword,
       },
       withCredentials: true,
-      url: "http://localhost:3001/api/user",
+      url: "http://localhost:3001/api/login",
     }).then((res) => console.log(res));
   };
   const getUser = () => {
