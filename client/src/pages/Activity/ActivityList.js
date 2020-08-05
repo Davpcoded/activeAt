@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 // import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -50,15 +50,23 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 export default function Album() {
   const classes = useStyles();
 
-  function ActivityCard() {
-    const [activity, setActivityState] = useState({
-      eventName: "",
-      eventDescription: "",
-      eventType: "",
-    });
+  const [events, setEvents] = useState([])
+ 
+  
+  
 
-    const [error, setError] = useState("");
-  }
+  useEffect(() => {
+    loadEvents()
+  }, [])
+
+  function loadEvents() {
+    API.getEvents()
+      .then(res => 
+        setEvents(res.data)
+      )
+      .catch(err => console.log(err));
+  };
+ 
 
   return (
     <React.Fragment>
@@ -94,27 +102,14 @@ export default function Album() {
               Active@ is the app that we are currently creating, we'll put
               something dope here.
             </Typography>
-            {/* <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
-            </div> */}
+          
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {events.map((event) => (
+              <Grid item key={event._id} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -122,12 +117,13 @@ export default function Album() {
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                    
+                    <Typography gutterBottom variant="h5" component="h2" >
+                      {event.eventName}
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
+                      {event.eventDescription}
+                      
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -144,17 +140,7 @@ export default function Album() {
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
-      {/* <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer> */}
-      {/* End footer */}
+
     </React.Fragment>
   );
 }
