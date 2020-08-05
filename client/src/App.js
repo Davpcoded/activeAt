@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/index";
 import SignUp from "./pages/SignUp/signUp";
 //import Home from './components/Home/Home'
 import Landing from "./pages/Landing/index";
+import EventCreation from './pages/EventCreation/EventCreation'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/eventCreation" component={EventCreation} />
         {/* <Home /> */}
       </div>
     </Router>

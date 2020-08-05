@@ -29,6 +29,7 @@ function Nav() {
     </Typography>
     <Button color="inherit">Login</Button>
     <Button color="inherit">SignUp</Button>
+    <Button color="inherit">Create Event</Button>
   </Toolbar>
 </AppBar>
 
