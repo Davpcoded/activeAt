@@ -6,33 +6,18 @@ import Button from '@material-ui/core/Button';
 
 function Nav() {
   return (
-    // <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-    //   <a className="navbar-brand" href="/">
-    //     React Reading List<Button color="inherit">Login</Button>
-    //   </a>
-    // </nav>
-  //   <AppBar position="relative">
-  //   <Toolbar>
-  //     {/* <CameraIcon className={classes.icon} /> */}
-  //     <Typography variant="h6" color="inherit" noWrap>
-  //       ActiveAt
-  //     </Typography>
-  //     <Button color="inherit">Login</Button>
-  //     <Button color="inherit">SignUp</Button>
-  //   </Toolbar>
-  // </AppBar>
 
-  <AppBar position="static">
+<AppBar position="static">
   <Toolbar>
-    <Typography variant="h6" color="inherit" Wrap>
+    <Typography variant="h6" color="inherit" wrap='true'>
     ActiveAt
     </Typography>
     <Button href="/login" color="inherit">Login</Button>
     <Button href="/signup" color="inherit">SignUp</Button>
-    <Button href="eventCreation" color="inherit">Create Event</Button>
+    <Button href="/eventCreation" color="inherit">Create Event</Button>
+    <Button href="/events" color="inherit">Events</Button>
   </Toolbar>
 </AppBar>
-
 
   );
 }

@@ -7,7 +7,6 @@ import EventSelect from '../../components/EventSelect/EventSelect'
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import Footer from "../../components/Footer";
 
 const classes = useStyles;
 
