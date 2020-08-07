@@ -1,17 +1,44 @@
-import React from "react";
+import React, {useState} from "react";
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import FormControl from '@material-ui/core/FormControl';
 import useStyles from '../../components/UseStyles/useStyles';
-import EventSelect from '../../components/EventSelect/EventSelect';
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
-
-const classes = useStyles;
+import Axios from "axios";
 
 function EventCreation() {
+  const classes = useStyles;
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [eventAddress, setEventAddress] = useState("");
+  const [eventCategory, setEventCategory] = useState("");
+  const [eventTime, setEventTime] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const [category, setCategory] = React.useState('');
+
+  const handleChange = (event) => {
+    setCategory(event.target.value);
+  };
+  
+  const registerEvent = () => {
+    Axios({
+      method: "POST",
+      data: {
+        firstName: firstName,
+        lastName: lastName,
+        eventAddress: eventAddress,
+        eventCategory: eventCategory,
+        eventTime: eventTime,
+        phoneNumber: phoneNumber
+      },
+      withCredentials: true,
+      url: "http://localhost:3001/api/event",
+    }).then((res) => console.log(res));
+  };
+
     return (
     <main>    
         <Box>
@@ -34,6 +61,7 @@ function EventCreation() {
                         id="firstName"
                         label="First Name"
                         autoFocus
+                        onChange={(e) => setFirstName(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -46,6 +74,7 @@ function EventCreation() {
                         id="lastName"
                         label="Last Name"
                         autoFocus
+                        onChange={(e) => setLastName(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -58,12 +87,21 @@ function EventCreation() {
                         type="eventAddress"
                         id="eventAddress"
                         autoComplete="eventAddress"
+                        onChange={(e) => setEventAddress(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                        <FormControl className={classes.formControl} variant="outlined" fullWidth>
-                          <EventSelect />
-                        </FormControl>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        name="eventCategory"
+                        label="Event Category (ex: Tennis, Bowling, Football)"
+                        type="eventCategory"
+                        id="eventCategory"
+                        autoComplete="eventCategory"
+                        onChange={(e) => setEventCategory(e.target.value)}
+                      />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
@@ -75,24 +113,26 @@ function EventCreation() {
                         id="eventTime"
                         label="Event Time (ex: 8:00pm)"
                         autoFocus
+                        onChange={(e) => setEventTime(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
-                        autoComplete="phoneNum"
-                        name="phoneNum"
+                        autoComplete="phoneNumber"
+                        name="phoneNumber"
                         variant="outlined"
                         required
                         fullWidth
-                        id="phoneNum"
+                        id="phoneNumber"
                         label="Contact Phone Number"
                         autoFocus
+                        onChange={(e) => setPhoneNumber(e.target.value)}
                       />
                     </Grid>
                 </Grid>
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
-                    <Button fullWidth variant="contained" color="primary">Submit</Button>
+                    <Button fullWidth variant="contained" color="primary" onClick={registerEvent}>Submit</Button>
                   </Grid>
                 </Grid>
             </Container>

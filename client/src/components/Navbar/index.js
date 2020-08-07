@@ -15,7 +15,7 @@ function Nav() {
     <Button href="/login" color="inherit">Login</Button>
     <Button href="/signup" color="inherit">SignUp</Button>
     <Button href="/eventCreation" color="inherit">Create Event</Button>
-    <Button href="/events" color="inherit">Events</Button>
+    <Button href="/event" color="inherit">Events</Button>
   </Toolbar>
 </AppBar>
 
