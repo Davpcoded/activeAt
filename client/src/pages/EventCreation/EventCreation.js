@@ -45,7 +45,7 @@ function EventCreation() {
             <div className={classes.heroContent}>
                 <Container maxWidth="md">
                     <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                          Active@ - Event Creation
+                          ActiveAt - Event Creation
                     </Typography>
                 </Container>
             </div>
