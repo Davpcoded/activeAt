@@ -39,7 +39,7 @@ export default function AvailableEvents() {
             <div className={classes.heroContent}>
                 <Container maxWidth="md">
                     <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                          Active@ - Currently Available Events
+                          ActiveAt - Currently Available Events
                     </Typography>
                 </Container>
             </div>
