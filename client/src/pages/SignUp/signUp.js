@@ -60,7 +60,7 @@ export default function SignUp() {
         username: registerUsername,
         password: registerPassword,
       },
-      withCredentials: true,
+      /* withCredentials: true, */
       url: "http://localhost:3001/api/user",
     }).then((res) => console.log(res));
   };

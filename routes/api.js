@@ -49,6 +49,7 @@ router.post("/user", ({ body }, res) => {
       res.json(dbUser);
     })
     .catch((err) => {
+      console.log(err)
       res.json(err);
     });
 });
