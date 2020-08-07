@@ -3,10 +3,11 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import FormControl from '@material-ui/core/FormControl';
 import useStyles from '../../components/UseStyles/useStyles';
-import EventSelect from '../../components/EventSelect/EventSelect'
+import EventSelect from '../../components/EventSelect/EventSelect';
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
+import Button from '@material-ui/core/Button';
 
 const classes = useStyles;
 
@@ -88,6 +89,11 @@ function EventCreation() {
                         autoFocus
                       />
                     </Grid>
+                </Grid>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Button fullWidth variant="contained" color="primary">Submit</Button>
+                  </Grid>
                 </Grid>
             </Container>
         </Box>
