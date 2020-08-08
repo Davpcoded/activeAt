@@ -11,10 +11,10 @@ import Axios from "axios";
 function EventCreation() {
   const classes = useStyles;
   const [eventName, setEventName] = useState("");
-  const [eventDesc, setEventDesc] = useState("");
-  const [eventAddress, setEventAddress] = useState("");
-  const [eventCategory, setEventCategory] = useState("");
-  const [eventTime, setEventTime] = useState("");
+  const [eventDescription, setEventDescription] = useState("");
+  const [eventLocation, setEventAddress] = useState("");
+  const [eventType, setEventType] = useState("");
+  const [eventDate, setEventDate] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   
   const registerEvent = () => {
@@ -22,10 +22,10 @@ function EventCreation() {
       method: "POST",
       data: {
         eventName: eventName,
-        eventDesc: eventDesc,
-        eventAddress: eventAddress,
-        eventCategory: eventCategory,
-        eventTime: eventTime,
+        eventDescription: eventDescription,
+        eventLocation: eventLocation,
+        eventType: eventType,
+        eventDate: eventDate,
         phoneNumber: phoneNumber
       },
       withCredentials: true,
@@ -60,15 +60,15 @@ function EventCreation() {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
-                        autoComplete="eventDesc"
-                        name="eventDesc"
+                        autoComplete="eventDescription"
+                        name="eventDescription"
                         variant="outlined"
                         required
                         fullWidth
-                        id="eventDesc"
+                        id="eventDescription"
                         label="Event Description"
                         autoFocus
-                        onChange={(e) => setEventDesc(e.target.value)}
+                        onChange={(e) => setEventDescription(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -76,11 +76,11 @@ function EventCreation() {
                         variant="outlined"
                         required
                         fullWidth
-                        name="eventAddress"
-                        label="Event Address"
-                        type="eventAddress"
-                        id="eventAddress"
-                        autoComplete="eventAddress"
+                        name="eventLocation"
+                        label="Event Location"
+                        type="eventLocation"
+                        id="eventLocation"
+                        autoComplete="eventLocation"
                         onChange={(e) => setEventAddress(e.target.value)}
                       />
                     </Grid>
@@ -89,25 +89,25 @@ function EventCreation() {
                         variant="outlined"
                         required
                         fullWidth
-                        name="eventCategory"
+                        name="eventType"
                         label="Event Category (ex: Tennis, Bowling, Football)"
-                        type="eventCategory"
-                        id="eventCategory"
-                        autoComplete="eventCategory"
-                        onChange={(e) => setEventCategory(e.target.value)}
+                        type="eventType"
+                        id="eventType"
+                        autoComplete="eventType"
+                        onChange={(e) => setEventType(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
-                        autoComplete="eventTime"
-                        name="eventTime"
+                        autoComplete="eventDate"
+                        name="eventDate"
                         variant="outlined"
                         required
                         fullWidth
-                        id="eventTime"
-                        label="Event Time (ex: 8:00pm)"
+                        id="eventDate"
+                        label="Event Date and Time (ex: 08/12/2020 8:00pm)"
                         autoFocus
-                        onChange={(e) => setEventTime(e.target.value)}
+                        onChange={(e) => setEventDate(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
