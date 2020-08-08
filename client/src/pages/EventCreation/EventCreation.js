@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import useStyles from '../../components/UseStyles/useStyles';
@@ -17,7 +17,9 @@ function EventCreation() {
   const [eventType, setEventType] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [googleState, setGoogleState] = useState("");
+  const [googleState, setGoogleState] = useState({lat: 47.6062, lng: -122.3321});
+
+  console.log("google map marker", Map)
   
   const registerEvent = () => {
     Axios({
@@ -35,6 +37,10 @@ function EventCreation() {
       url: "http://localhost:3001/api/event",
     }).then((res) => console.log(res));
   };
+
+  useEffect(() => {
+    console.log("Google Map Marker 2", googleState) 
+  }, [googleState])
 
     return (
     <main>    
@@ -132,6 +138,13 @@ function EventCreation() {
                     <Button fullWidth variant="contained" color="primary" onClick={registerEvent}>Submit</Button>
                   </Grid>
                 </Grid>
+                <Map
+                //  google={this.props.google}
+                 center={googleState}
+                 handleChange={setGoogleState}
+                 height='300px'
+                 zoom={15}
+                />
             </Container>
         </Box>
     </main>
