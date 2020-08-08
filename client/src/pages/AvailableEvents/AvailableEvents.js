@@ -47,7 +47,7 @@ export default function AvailableEvents() {
                     <Card className={classes.card}>
                       <CardMedia
                         className={classes.cardMedia}
-                        image={"https://source.unsplash.com/search/photos?query=" + event.eventCategory || "https://source.unsplash.com/photos" }
+                        image={"https://source.unsplash.com/search/photos?query=" + event.eventType || "https://source.unsplash.com/photos" }
                         title={event.eventName}
                       />
                       <CardContent className={classes.cardContent}>
@@ -61,7 +61,7 @@ export default function AvailableEvents() {
                           {event.eventDescription}
                         </Typography>
                         <Typography>
-                          {event.eventLocation}
+                          {event.markerPositon}
                         </Typography>
                         <Typography>
                           {event.eventDate}

@@ -18,9 +18,9 @@ function EventCreation() {
   const [eventDate, setEventDate] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [googleState, setGoogleState] = useState({lat: 47.6062, lng: -122.3321});
-
-  console.log("google map marker", Map)
   
+  // googleState = {lat: 47.6062, lng: -122.3321}
+
   const registerEvent = () => {
     Axios({
       method: "POST",
@@ -30,8 +30,8 @@ function EventCreation() {
         //eventLocation: eventLocation,
         eventType: eventType,
         eventDate: eventDate,
-        phoneNumber: phoneNumber
-        
+        phoneNumber: phoneNumber,
+        markerPosition: googleState
       },
       withCredentials: true,
       url: "http://localhost:3001/api/event",
@@ -39,7 +39,7 @@ function EventCreation() {
   };
 
   useEffect(() => {
-    console.log("Google Map Marker 2", googleState) 
+    // console.log("Google Map Marker 2", googleState) 
   }, [googleState])
 
     return (

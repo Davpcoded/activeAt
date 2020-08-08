@@ -14,7 +14,6 @@ import Bball from "../../assets/bball.jpg";
 import Hiking from "../../assets/hiking.jpg";
 import Chess from "../../assets/chess.jpg";
 import Band from "../../assets/band.jpg";
-import Swipe from "../../components/Grid/index";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
@@ -32,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
     margin: 0,
-    backgroundImage: `url(${Swipe})`,
   },
   heroButtons: {
     marginTop: theme.spacing(4),

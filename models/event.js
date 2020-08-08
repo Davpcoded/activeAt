@@ -20,13 +20,13 @@ const event = new Schema({
   },
 
   eventType: {
-    type: Array,
+    type: String,
     required: "Please select an event type",
   },
 
   markerPosition: [
     {
-      long: "",
+      lng: "",
       lat: "",
     },
   ],
