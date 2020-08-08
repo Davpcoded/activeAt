@@ -60,16 +60,19 @@ router.post("/event", ({ body }, res) => {
       res.json(dbUser);
     })
     .catch((err) => {
+      console.log(err);
       res.json(err);
     });
 });
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
+    console.log(err);
     if (!user) res.send("No user Exist");
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
+        console.log(err);
         res.send("Successfully Authenticated");
         console.log(req.user);
         console.log(req.info);
@@ -80,6 +83,7 @@ router.post("/login", (req, res, next) => {
 router.post("/signup", (req, res) => {
   User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;
+    console.log(err);
     if (doc) res.send("User Already Exists");
     if (!doc) {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
