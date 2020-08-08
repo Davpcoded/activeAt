@@ -58,7 +58,10 @@ export default function AvailableEvents() {
                           {event.eventCategory}
                         </Typography>
                         <Typography>
-                          {event.eventDescription}
+                          {event.eventDesc}
+                        </Typography>
+                        <Typography>
+                          {event.eventAddress}
                         </Typography>
                       </CardContent>
                       <CardActions>
@@ -66,7 +69,7 @@ export default function AvailableEvents() {
                           View
                         </Button>
                         <Button size="small" color="primary">
-                          Edit
+                          Join Event
                         </Button>
                       </CardActions>
                     </Card>
