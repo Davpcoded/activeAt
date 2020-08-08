@@ -55,13 +55,16 @@ export default function AvailableEvents() {
                           {event.eventName}
                         </Typography>
                         <Typography>
-                          {event.eventCategory}
+                          {event.eventType}
                         </Typography>
                         <Typography>
-                          {event.eventDesc}
+                          {event.eventDescription}
                         </Typography>
                         <Typography>
-                          {event.eventAddress}
+                          {event.eventLocation}
+                        </Typography>
+                        <Typography>
+                          {event.eventDate}
                         </Typography>
                       </CardContent>
                       <CardActions>
