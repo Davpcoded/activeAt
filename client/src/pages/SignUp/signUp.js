@@ -108,7 +108,6 @@ export default function SignUp() {
                 fullWidth
                 id="firstName"
                 label="First Name"
-                autoFocus
                 onChange={(e) => setRegisterFirstName(e.target.value)}
               />
             </Grid>
@@ -133,7 +132,6 @@ export default function SignUp() {
                 fullWidth
                 id="username"
                 label="Username"
-                autoFocus
                 onChange={(e) => setRegisterUsername(e.target.value)}
               />
             </Grid>

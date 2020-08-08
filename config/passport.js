@@ -40,10 +40,12 @@ passport.use(
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser((user, cb) => {
+  console.log(user);
   cb(null, user);
 });
 
 passport.deserializeUser((obj, cb) => {
+  console.log(user);
   cb(null, obj);
 });
 

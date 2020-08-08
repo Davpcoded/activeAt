@@ -68,14 +68,14 @@ export default function SignInSide() {
 
   const login = () => {
     Axios({
-      method: "POST",
+      method: "GET",
       data: {
         username: loginUsername,
         password: loginPassword,
       },
       withCredentials: true,
       url: "http://localhost:3001/api/login",
-    }).then((res) => console.log(res));
+    }).then((res) => console.log("console log 1",res));
   };
   const getUser = () => {
     Axios({
@@ -84,7 +84,7 @@ export default function SignInSide() {
       url: "http://localhost:3001/api/user",
     }).then((res) => {
       setData(res.data);
-      console.log(res.data);
+      console.log("console log 2", res.data);
     });
   };
 
