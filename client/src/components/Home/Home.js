@@ -9,7 +9,7 @@ class Home extends Component {
       return(
           <Map
        google={this.props.google}
-       center={{lat: 18.5204, lng: 73.8567}}
+       center={{lat: 47.6062, lng: -122.3321}}
        height='300px'
        zoom={15}
       />

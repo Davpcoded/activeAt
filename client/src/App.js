@@ -7,7 +7,8 @@ import Landing from "./pages/Landing/index";
 import EventCreation from './pages/EventCreation/EventCreation'
 import Activitylist from "./pages/Activity/ActivityList"
 import AvailableEvents from "./pages/AvailableEvents/AvailableEvents";
-import Footer from './components/Footer/index'
+import Footer from './components/Footer/index';
+import Home from "./components/Home/Home";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/activity" component={Activitylist} />
         <Route exact path="/eventCreation" component={EventCreation} />
         <Route exact path="/event" component={AvailableEvents} />
+        <Home />
         <Footer />
       </div>
     </Router>

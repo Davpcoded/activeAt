@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const event = new Schema({
-  eventCreator: {
-      type: String,
-      trim: true,
-  },
+  // eventCreator: {
+  //     type: String,
+  //     trim: true,
+  // },
 
   eventName: {
     type: String,
@@ -24,14 +24,15 @@ const event = new Schema({
     required: "Please select an event type",
   },
 
-  eventLocation: {
-    type: String,
-    trim: true,
-    required: "Please provide a location for your event",
-  },
+  markerPosition: [
+    {
+      long: "",
+      lat: "",
+    },
+  ],
 
   eventDate: {
-    type: Date,
+    type: String,
     required: "Please select a date and time for your event",
   },
 

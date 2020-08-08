@@ -55,7 +55,7 @@ router.post("/user", ({ body }, res) => {
 });
 
 router.post("/event", ({ body }, res) => {
-  db.User.create(body)
+  db.Event.create(body)
     .then((dbUser) => {
       res.json(dbUser);
     })

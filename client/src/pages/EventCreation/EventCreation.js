@@ -7,15 +7,17 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
 import Axios from "axios";
+import Map from "../../components/Google/Map";
 
 function EventCreation() {
   const classes = useStyles;
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
-  const [eventLocation, setEventAddress] = useState("");
+  //const [eventLocation, setEventAddress] = useState("");
   const [eventType, setEventType] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [googleState, setGoogleState] = useState("");
   
   const registerEvent = () => {
     Axios({
@@ -23,10 +25,11 @@ function EventCreation() {
       data: {
         eventName: eventName,
         eventDescription: eventDescription,
-        eventLocation: eventLocation,
+        //eventLocation: eventLocation,
         eventType: eventType,
         eventDate: eventDate,
         phoneNumber: phoneNumber
+        
       },
       withCredentials: true,
       url: "http://localhost:3001/api/event",
@@ -71,7 +74,7 @@ function EventCreation() {
                         onChange={(e) => setEventDescription(e.target.value)}
                       />
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    {/* <Grid item xs={12} sm={6}>
                       <TextField
                         variant="outlined"
                         required
@@ -83,7 +86,7 @@ function EventCreation() {
                         autoComplete="eventLocation"
                         onChange={(e) => setEventAddress(e.target.value)}
                       />
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={12} sm={6}>
                       <TextField
                         variant="outlined"
