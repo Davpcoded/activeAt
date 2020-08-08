@@ -10,25 +10,19 @@ import Axios from "axios";
 
 function EventCreation() {
   const classes = useStyles;
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [eventName, setEventName] = useState("");
+  const [eventDesc, setEventDesc] = useState("");
   const [eventAddress, setEventAddress] = useState("");
   const [eventCategory, setEventCategory] = useState("");
   const [eventTime, setEventTime] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-
-  const [category, setCategory] = React.useState('');
-
-  const handleChange = (event) => {
-    setCategory(event.target.value);
-  };
   
   const registerEvent = () => {
     Axios({
       method: "POST",
       data: {
-        firstName: firstName,
-        lastName: lastName,
+        eventName: eventName,
+        eventDesc: eventDesc,
         eventAddress: eventAddress,
         eventCategory: eventCategory,
         eventTime: eventTime,
@@ -53,28 +47,28 @@ function EventCreation() {
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                       <TextField
-                        autoComplete="fname"
-                        name="firstName"
+                        autoComplete="eventName"
+                        name="eventName"
                         variant="outlined"
                         required
                         fullWidth
-                        id="firstName"
-                        label="First Name"
+                        id="eventName"
+                        label="Event Name"
                         autoFocus
-                        onChange={(e) => setFirstName(e.target.value)}
+                        onChange={(e) => setEventName(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
-                        autoComplete="lname"
-                        name="lastName"
+                        autoComplete="eventDesc"
+                        name="eventDesc"
                         variant="outlined"
                         required
                         fullWidth
-                        id="lastName"
-                        label="Last Name"
+                        id="eventDesc"
+                        label="Event Description"
                         autoFocus
-                        onChange={(e) => setLastName(e.target.value)}
+                        onChange={(e) => setEventDesc(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
