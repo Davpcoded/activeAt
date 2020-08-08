@@ -51,6 +51,11 @@ export default function SignUp() {
   const classes = useStyles();
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const [registerFirstName, setRegisterFirstName] = useState("");
+  const [registerLastName, setRegisterLastName] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPhone, setRegisterPhone] = useState("");
+  const [registerZipCode, setRegisterZipCode] = useState("");
   const [data, setData] = useState(null);
 
   const register = () => {
@@ -59,6 +64,11 @@ export default function SignUp() {
       data: {
         username: registerUsername,
         password: registerPassword,
+        firstName: registerFirstName,
+        lastName: registerLastName,
+        email: registerEmail,
+        phone: registerPhone,
+        zipCode: registerZipCode,
       },
       /* withCredentials: true, */
       url: "http://localhost:3001/api/user",
@@ -73,7 +83,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <div className="App">
+        {/* <div className="App">
           <div>
             <h1>Register</h1>
             <input
@@ -86,7 +96,7 @@ export default function SignUp() {
             />
             <button onClick={register}>Submit</button>
           </div>
-        </div>
+        </div> */}
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
@@ -99,6 +109,7 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                onChange={(e) => setRegisterFirstName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -110,6 +121,20 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                onChange={(e) => setRegisterLastName(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+            <TextField
+                autoComplete=""
+                name="username"
+                variant="outlined"
+                required
+                fullWidth
+                id="username"
+                label="Username"
+                autoFocus
+                onChange={(e) => setRegisterUsername(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -121,6 +146,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => setRegisterEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -132,45 +158,10 @@ export default function SignUp() {
                 label="Phone Number"
                 name="phone"
                 autoComplete="phone"
+                onChange={(e) => setRegisterPhone(e.target.value)}
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="streetAddress"
-                label="Street Address"
-                type="streetAddress"
-                id="streetAddress"
-                autoComplete="streetAddress"
-              />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="city"
-                label="City"
-                type="city"
-                id="city"
-                autoComplete="city"
-              />
-            </Grid>
-            <Grid item xs={12} xs={4}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="state"
-                label="State"
-                type="state"
-                id="state"
-                autoComplete="state"
-              />
-            </Grid>
-            <Grid item xs={12} xs={4}>
+            <Grid item xs={12} xs={6}>
               <TextField
                 variant="outlined"
                 required
@@ -180,9 +171,10 @@ export default function SignUp() {
                 type="zipCode"
                 id="zipCode"
                 autoComplete="zipCode"
+                onChange={(e) => setRegisterZipCode(e.target.value)}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} xs={6}>
               <TextField
                 variant="outlined"
                 required
@@ -192,6 +184,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setRegisterPassword(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -201,6 +194,8 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={register}
+            href="/login"
           >
             Sign Up
           </Button>

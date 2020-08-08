@@ -1,45 +1,38 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
-//import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Bball from "../../assets/bball.jpg";
 import Hiking from "../../assets/hiking.jpg";
 import Chess from "../../assets/chess.jpg";
 import Band from "../../assets/band.jpg";
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
+import Swipe from "../../components/Grid/index";
+import SwipeableViews from "react-swipeable-views";
+import { autoPlay } from "react-swipeable-views-utils";
 
 const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
+  slide: {
+    padding: theme.spacing(0, 0, 0),
+    //backgroundImage: `url(${Bball})`
+    //backgroundColor: "Red",
+  },
+  slide1: {
+    backgroundColor: "Black",
+    padding: theme.spacing(0, 0, 0),
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
     margin: 0,
+    backgroundImage: `url(${Swipe})`,
   },
   heroButtons: {
     marginTop: theme.spacing(4),
@@ -68,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export default function Album() {
   const classes = useStyles();
@@ -79,6 +72,70 @@ export default function Album() {
 
       <main>
         {/* Hero unit */}
+        <AutoPlaySwipeableViews className={classes.slide}>
+          <Container>
+            <Grid sm={6}>
+              <Container maxWidth="sm">
+                <Typography
+                  component="h1"
+                  variant="h2"
+                  align="center"
+                  color="textPrimary"
+                  gutterBottom
+                >
+                  Active@
+                </Typography>
+              </Container>
+            </Grid>
+          </Container>
+
+          <Container>
+            <Grid sm={6}>
+              <Container maxWidth="sm">
+                <Typography
+                  component="h1"
+                  variant="h2"
+                  align="center"
+                  color="textPrimary"
+                  gutterBottom
+                >
+                  Join people Active@ in your area
+                </Typography>
+              </Container>
+            </Grid>
+          </Container>
+          <Container>
+            <Grid sm={6}>
+              <Container maxWidth="sm">
+                <Typography
+                  component="h1"
+                  variant="h2"
+                  align="center"
+                  color="textPrimary"
+                  gutterBottom
+                >
+                  Be Active@ in the things you enjoy
+                </Typography>
+              </Container>
+            </Grid>
+          </Container>
+          <Container>
+            <Grid sm={6}>
+              <Container maxWidth="sm">
+                <Typography
+                  component="h1"
+                  variant="h2"
+                  align="center"
+                  color="textPrimary"
+                  gutterBottom
+                >
+                  Find what's Active@ near you
+                </Typography>
+              </Container>
+            </Grid>
+          </Container>
+        </AutoPlaySwipeableViews>
+
         <div className={classes.heroContent}>
           <Container>
             <Grid sm={6}>
@@ -115,11 +172,6 @@ export default function Album() {
                     </Grid>
                   </Grid>
                 </div>
-              </Container>
-            </Grid>
-            <Grid sm={6}>
-              <Container>
-                <Typography>test</Typography>
               </Container>
             </Grid>
           </Container>
