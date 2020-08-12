@@ -9,11 +9,7 @@ function Nav() {
 
 <AppBar position="static">
   <Toolbar>
-    <Typography variant="h6" color="inherit" wrap='true'>
-    ActiveAt
-    </Typography>
-    <Button href="/login" color="inherit">Login</Button>
-    <Button href="/signup" color="inherit">SignUp</Button>
+    <Button href="/activity" color="inherit" size="large">Active@</Button>
     <Button href="/eventCreation" color="inherit">Create Event</Button>
     <Button href="/event" color="inherit">Events</Button>
   </Toolbar>
