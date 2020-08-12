@@ -71,7 +71,7 @@ export default function SignUp() {
         zipCode: registerZipCode,
       },
       /* withCredentials: true, */
-      url: "http://localhost:3001/api/user",
+      url: "http://localhost:3001/api/signup",
     }).then((res) => console.log(res));
   };
 

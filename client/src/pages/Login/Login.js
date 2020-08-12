@@ -14,6 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Axios from "axios";
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -68,7 +69,7 @@ export default function SignInSide() {
 
   const login = () => {
     Axios({
-      method: "GET",
+      method: "POST",
       data: {
         username: loginUsername,
         password: loginPassword,
@@ -88,31 +89,13 @@ export default function SignInSide() {
     });
   };
 
+ 
   return (
+
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className="App">
-          <div>
-            <h1>Login</h1>
-            <input
-              placeholder="username"
-              onChange={(e) => setLoginUsername(e.target.value)}
-            />
-            <input
-              placeholder="password"
-              onChange={(e) => setLoginPassword(e.target.value)}
-            />
-            <button onClick={login}>Submit</button>
-          </div>
-
-          <div>
-            <h1>Get User</h1>
-            <button onClick={getUser}>Submit</button>
-            {data ? <h1>Welcome Back {data.username}</h1> : null}
-          </div>
-        </div>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             {/* <LockOutlinedIcon /> */}
@@ -155,10 +138,18 @@ export default function SignInSide() {
               variant="contained"
               color="primary"
               onClick={login}
+              // href="/"
               className={classes.submit}
             >
               Sign In
             </Button>
+
+            <div>
+            <h1>Get User</h1>
+            <button onClick={getUser}>Submit</button>
+            {data ? <h1>Welcome Back {data.username}</h1> : null}
+          </div>
+        
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

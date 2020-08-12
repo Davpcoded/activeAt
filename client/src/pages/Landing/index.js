@@ -14,8 +14,9 @@ import Bball from "../../assets/bball.jpg";
 import Hiking from "../../assets/hiking.jpg";
 import Chess from "../../assets/chess.jpg";
 import Band from "../../assets/band.jpg";
-// import SwipeableViews from "react-swipeable-views";
-// import { autoPlay } from "react-swipeable-views-utils";
+import SwipeableViews from "react-swipeable-views";
+import { autoPlay } from "react-swipeable-views-utils";
+import Navbar from "../../components/Navbar/index"
 import Head from "../../assets/Adventure.jpg";
 import Swipes from "../../components/Swipes/index";
 import Jumbo from "../../components/Jumbo/";
@@ -78,9 +79,10 @@ export default function Album() {
   const classes = useStyles();
 
   return (
+   
     <React.Fragment>
       <CssBaseline />
-
+      <Navbar />
       <main>
         {/* Hero unit */}
         
