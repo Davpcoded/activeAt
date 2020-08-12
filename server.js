@@ -24,14 +24,18 @@ app.use(
     credentials: true,
   })
 );
-app.use(
-  session({
-    secret: "secretcode",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
-app.use(cookieParser("secretcode"));
+app.use(cookieParser());
+app.use(session({
+  secret:"secretcode"
+}));
+// app.use(
+//   session({
+//     secret: "secretcode",
+//     resave: true,
+//     saveUninitialized: true,
+//   })
+// );
+
 app.use(passport.initialize());
 app.use(passport.session());
 require("./config/passport");

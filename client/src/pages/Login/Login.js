@@ -13,20 +13,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Axios from "axios";
+import {useHistory} from "react-router-dom"
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,9 +53,11 @@ export default function SignInSide() {
   const classes = useStyles();
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [data, setData] = useState(null);
+  const history = useHistory();
 
   const login = () => {
+    
+    console.log("I'm logged in")
     Axios({
       method: "POST",
       data: {
@@ -76,19 +66,12 @@ export default function SignInSide() {
       },
       withCredentials: true,
       url: "http://localhost:3001/api/login",
-    }).then((res) => console.log("console log 1",res));
-  };
-  const getUser = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "http://localhost:3001/api/user",
     }).then((res) => {
-      setData(res.data);
-      console.log("console log 2", res.data);
-    });
+      console.log("console log 1",res);
+      sessionStorage.setItem("User", JSON.stringify(res.data))
+      history.push("/")
+  });
   };
-
  
   return (
 
@@ -133,7 +116,7 @@ export default function SignInSide() {
               label="Remember me"
             />
             <Button
-              type="submit"
+              // type="submit"
               fullWidth
               variant="contained"
               color="primary"
@@ -144,11 +127,7 @@ export default function SignInSide() {
               Sign In
             </Button>
 
-            <div>
-            <h1>Get User</h1>
-            <button onClick={getUser}>Submit</button>
-            {data ? <h1>Welcome Back {data.username}</h1> : null}
-          </div>
+            
         
             <Grid container>
               <Grid item xs>
@@ -163,7 +142,6 @@ export default function SignInSide() {
               </Grid>
             </Grid>
             <Box mt={5}>
-              <Copyright />
             </Box>
           </form>
         </div>
