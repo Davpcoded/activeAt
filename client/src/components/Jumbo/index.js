@@ -12,11 +12,11 @@ const styles = {
     fontWeight: 'bold',
   },
   letter: {
-      background: "black",
+      //background: "black",
       margin: 30,
   },
   letter2: {
-      background: "black"
+      //background: "black"
   }
 };
 

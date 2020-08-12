@@ -8,7 +8,8 @@ import Events from "../../components/Cards/index";
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    //backgroundImage: "url(https://source.unsplash.com/random)",
+    background: "linear-gradient(black, grey)",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -21,7 +22,6 @@ export default function Album() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Navbar />
         {/* Hero unit */}
       <main className={classes.main}>
         <Swipes />
