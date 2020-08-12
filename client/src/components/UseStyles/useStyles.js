@@ -46,6 +46,15 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(6),
     },
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: 200,
+    },
     
   }));
 

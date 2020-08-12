@@ -21,7 +21,8 @@ export default function Album() {
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <Navbar /> */}
+      <Navbar />
+        {/* Hero unit */}
       <main className={classes.main}>
         <Swipes />
         <Jumbo />

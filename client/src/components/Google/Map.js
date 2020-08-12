@@ -2,9 +2,8 @@ import React from 'react'
 import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";
 import Autocomplete from 'react-google-autocomplete';
 import Geocode from "react-geocode";
-Geocode.setApiKey("AIzaSyDwFFxLu3ahTyivmky4_wtvL6oWGFYRspQ");
-Geocode.enableDebug(); 
-
+Geocode.setApiKey("AIzaSyCBPqCGvqNPVyTFsYqvD65aWAa5YggPLYg");
+Geocode.enableDebug();
 
 class Map extends React.Component{
     constructor( props ){
@@ -175,19 +174,19 @@ class Map extends React.Component{
       let newLat = event.latLng.lat(),
        newLng = event.latLng.lng(),
        addressArray = [];
-    Geocode.fromLatLng( newLat , newLng ).then(
+       Geocode.fromLatLng( newLat , newLng ).then(
        response => {
         const address = response.results[0].formatted_address,
          addressArray =  response.results[0].address_components,
          city = this.getCity( addressArray ),
          area = this.getArea( addressArray ),
          state = this.getState( addressArray );
-    this.setState( {
+        this.setState( {
          address: ( address ) ? address : '',
          area: ( area ) ? area : '',
          city: ( city ) ? city : '',
          state: ( state ) ? state : ''
-        },() => {this.props.handleChange({lat: newLat, lng: newLng})} )
+        },() => {this.props.handleChange({lat: newLat, lng: newLng, address: address})} )
        },
        error => {
         console.error(error);
@@ -239,7 +238,7 @@ class Map extends React.Component{
       if( this.props.center.lat !== undefined ) {
        map = <div>
          <div>
-          <div className="form-group">
+          {/* <div className="form-group">
            <label htmlFor="">City</label>
            <input type="text" name="city" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.city }/>
           </div>
@@ -254,10 +253,10 @@ class Map extends React.Component{
           <div className="form-group">
            <label htmlFor="">Address</label>
            <input type="text" name="address" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.address }/>
-          </div>
+          </div> */}
          </div>
          <AsyncMap
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwFFxLu3ahTyivmky4_wtvL6oWGFYRspQ&libraries=places"
+          googleMapURL={"https://maps.googleapis.com/maps/api/js?key=AIzaSyCBPqCGvqNPVyTFsYqvD65aWAa5YggPLYg&libraries=places"}
           loadingElement={
            <div style={{ height: `100%` }} />
           }

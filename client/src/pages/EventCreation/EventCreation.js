@@ -13,13 +13,13 @@ function EventCreation() {
   const classes = useStyles;
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
-  //const [eventLocation, setEventAddress] = useState("");
+  const [eventLocation, setEventAddress] = useState("");
   const [eventType, setEventType] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [googleState, setGoogleState] = useState({lat: 47.6062, lng: -122.3321});
   
-  // googleState = {lat: 47.6062, lng: -122.3321}
+  console.log( "MAPS ADDRESS",googleState)
 
   const registerEvent = () => {
     Axios({
@@ -27,7 +27,7 @@ function EventCreation() {
       data: {
         eventName: eventName,
         eventDescription: eventDescription,
-        //eventLocation: eventLocation,
+        eventLocation: eventLocation,
         eventType: eventType,
         eventDate: eventDate,
         phoneNumber: phoneNumber,
@@ -80,19 +80,20 @@ function EventCreation() {
                         onChange={(e) => setEventDescription(e.target.value)}
                       />
                     </Grid>
-                    {/* <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6}>
                       <TextField
                         variant="outlined"
                         required
                         fullWidth
                         name="eventLocation"
-                        label="Event Location"
+                        // label="Event Location"
                         type="eventLocation"
                         id="eventLocation"
                         autoComplete="eventLocation"
                         onChange={(e) => setEventAddress(e.target.value)}
+                        value={JSON.stringify(googleState.address)}
                       />
-                    </Grid> */}
+                    </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
                         variant="outlined"
@@ -107,17 +108,24 @@ function EventCreation() {
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField
-                        autoComplete="eventDate"
-                        name="eventDate"
-                        variant="outlined"
-                        required
-                        fullWidth
-                        id="eventDate"
-                        label="Event Date and Time (ex: 08/12/2020 8:00pm)"
-                        autoFocus
-                        onChange={(e) => setEventDate(e.target.value)}
-                      />
+                      <form className={classes.container} noValidate>
+                        <TextField
+                          id="eventDate"
+                          name="eventDate"
+                          autoComplete="eventDate"
+                          label="Event Date"
+                          type="datetime-local"
+                          defaultValue="2017-05-24T10:30"
+                          className={classes.textField}
+                          InputLabel={{
+                            shrink: true,
+                          }}
+                          required
+                          fullWidth
+                          variant="outlined"
+                          onChange={(e) => setEventDate(e.target.value)}
+                        />
+                      </form>
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
@@ -138,13 +146,18 @@ function EventCreation() {
                     <Button fullWidth variant="contained" color="primary" onClick={registerEvent}>Submit</Button>
                   </Grid>
                 </Grid>
-                <Map
-                //  google={this.props.google}
-                 center={googleState}
-                 handleChange={setGoogleState}
-                 height='300px'
-                 zoom={15}
-                />
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Map
+                     fullWidth
+                     variant="contained"
+                     center={googleState}
+                     handleChange={setGoogleState}
+                     height='300px'
+                     zoom={15}
+                    />
+                  </Grid>
+                </Grid>
             </Container>
         </Box>
     </main>
