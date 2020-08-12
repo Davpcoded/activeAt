@@ -17,12 +17,18 @@ import Band from "../../assets/band.jpg";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 import Navbar from "../../components/Navbar/index"
+import Head from "../../assets/Adventure.jpg";
+import Swipes from "../../components/Swipes/index";
+import Jumbo from "../../components/Jumbo/";
 
 const useStyles = makeStyles((theme) => ({
   slide: {
     padding: theme.spacing(0, 0, 0),
-    //backgroundImage: `url(${Bball})`
+    backgroundImage: `url(${Hiking})`,
     //backgroundColor: "Red",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
   },
   slide1: {
     backgroundColor: "Black",
@@ -31,7 +37,14 @@ const useStyles = makeStyles((theme) => ({
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
-    margin: 0,
+    color: theme.palette.common.white,
+    //margin: 0,
+    //position: "center",
+    backgroundImage: `url(${Head})`,
+    //backgroundColor: "Red",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
   },
   heroButtons: {
     marginTop: theme.spacing(4),
@@ -60,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+//const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export default function Album() {
   const classes = useStyles();
@@ -72,72 +85,13 @@ export default function Album() {
       <Navbar />
       <main>
         {/* Hero unit */}
-        <AutoPlaySwipeableViews className={classes.slide}>
-          <Container>
-            <Grid sm={6}>
-              <Container maxWidth="sm">
-                <Typography
-                  component="h1"
-                  variant="h2"
-                  align="center"
-                  color="textPrimary"
-                  gutterBottom
-                >
-                  Active@
-                </Typography>
-              </Container>
-            </Grid>
-          </Container>
+        
+        <Swipes />
 
-          <Container>
-            <Grid sm={6}>
-              <Container maxWidth="sm">
-                <Typography
-                  component="h1"
-                  variant="h2"
-                  align="center"
-                  color="textPrimary"
-                  gutterBottom
-                >
-                  Join people Active@ in your area
-                </Typography>
-              </Container>
-            </Grid>
-          </Container>
-          <Container>
-            <Grid sm={6}>
-              <Container maxWidth="sm">
-                <Typography
-                  component="h1"
-                  variant="h2"
-                  align="center"
-                  color="textPrimary"
-                  gutterBottom
-                >
-                  Be Active@ in the things you enjoy
-                </Typography>
-              </Container>
-            </Grid>
-          </Container>
-          <Container>
-            <Grid sm={6}>
-              <Container maxWidth="sm">
-                <Typography
-                  component="h1"
-                  variant="h2"
-                  align="center"
-                  color="textPrimary"
-                  gutterBottom
-                >
-                  Find what's Active@ near you
-                </Typography>
-              </Container>
-            </Grid>
-          </Container>
-        </AutoPlaySwipeableViews>
+        <Jumbo />
 
-        <div className={classes.heroContent}>
-          <Container>
+        {/* <div className={classes.heroContent}>
+          <Container align="center">
             <Grid sm={6}>
               <Container maxWidth="sm">
                 <Typography
@@ -175,12 +129,12 @@ export default function Album() {
               </Container>
             </Grid>
           </Container>
-        </div>
-        <Container className={classes.cardGrid} maxWidth="md">
+        </div> */}
+        <Container className={classes.cardGrid} maxWidth="md" align="center">
           {/* End hero unit */}
-          <Grid container spacing={8}>
-            <Card className={classes.root}>
-              <CardActionArea>
+          <Grid container spacing={8} align="center">
+            <Card className={classes.root} align="center">
+              <CardActionArea align="center">
                 <CardMedia
                   className={classes.media}
                   image={Hiking}
