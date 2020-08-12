@@ -42,7 +42,7 @@ const eventSeed = [
 
 const userSeed = [
   {
-    name: "John Smith",
+    username: "John Smith",
     password: 12345,
     email: "john@john.com",
     phone: 555555555,
