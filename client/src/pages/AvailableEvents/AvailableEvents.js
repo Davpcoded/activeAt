@@ -29,6 +29,8 @@ export default function AvailableEvents() {
       .catch(err => console.log(err));
   };
 
+  // let playerCount = 0
+
   return (
     <React.Fragment>
         <CssBaseline />
@@ -52,26 +54,31 @@ export default function AvailableEvents() {
                       />
                       <CardContent className={classes.cardContent}>
                         <Typography gutterBottom variant="h5" component="h2" >
-                          {event.eventName}
+                          Event Title: {event.eventName}
                         </Typography>
                         <Typography>
-                          {event.eventType}
+                          Event Category: {event.eventType}
                         </Typography>
                         <Typography>
-                          {event.eventDescription}
+                          Event Description: {event.eventDescription}
                         </Typography>
                         <Typography>
-                          {event.markerPositon}
+                          Event Date and Time: {event.eventDate}
                         </Typography>
                         <Typography>
-                          {event.eventDate}
+                          Address: {event.markerPosition[0].address}
                         </Typography>
+                        {/* <Typography>
+                          Currently Attending: {playerCount}
+                        </Typography> */}
                       </CardContent>
                       <CardActions>
                         <Button size="small" color="primary">
                           View
                         </Button>
-                        <Button size="small" color="primary">
+                        <Button size="small" color="primary" 
+                        // onClick={playerCount = ++playerCount}
+                        >
                           Join Event
                         </Button>
                       </CardActions>

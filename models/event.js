@@ -28,12 +28,18 @@ const event = new Schema({
     {
       lng: "",
       lat: "",
+      address: "",
     },
   ],
 
   eventDate: {
     type: String,
     required: "Please select a date and time for your event",
+  },
+
+  phoneNumber: {
+    type: String,
+    required: "Please add contact info for your event",
   },
 
   boolean: Boolean,
