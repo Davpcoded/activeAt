@@ -82,7 +82,7 @@ export default function Album() {
    
     <React.Fragment>
       <CssBaseline />
-      <Navbar />
+      {/* <Navbar /> */}
       <main>
         {/* Hero unit */}
         
