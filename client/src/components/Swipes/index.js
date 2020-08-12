@@ -8,22 +8,20 @@ const styles = {
       minHeight: 100,
       color: '#fff',
       fontSize: 32,
+      background: 'black'
     },
-    slide1: {
-      background: '#FEA900',
-    },
-    slide2: {
-      background: '#B3DC4A',
-    },
-    slide3: {
-      background: '#6AC0FF',
-    },
+    auto: {
+      interval: '1000000',
+      duration: '0.8s', 
+      easeFunction: '...', 
+      delay: '1s'
+    }
   };
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const Swipes = () => (
-  <AutoPlaySwipeableViews>
+  <AutoPlaySwipeableViews interval="5000">
     <div style={Object.assign({}, styles.slide, styles.slide1)}>
     Join people Active@ in your area
     </div>
