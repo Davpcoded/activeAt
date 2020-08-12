@@ -13,13 +13,12 @@ function EventCreation() {
   const classes = useStyles;
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
-  const [eventLocation, setEventAddress] = useState("");
   const [eventType, setEventType] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [googleState, setGoogleState] = useState({lat: 47.6062, lng: -122.3321});
+  const [googleState, setGoogleState] = useState({lat: 47.6062, lng: -122.3321, address: "Seattle, WA"});
   
-  console.log( "MAPS ADDRESS",googleState)
+  // console.log( "MAPS ADDRESS",googleState)
 
   const registerEvent = () => {
     Axios({
@@ -27,7 +26,6 @@ function EventCreation() {
       data: {
         eventName: eventName,
         eventDescription: eventDescription,
-        eventLocation: eventLocation,
         eventType: eventType,
         eventDate: eventDate,
         phoneNumber: phoneNumber,
@@ -35,7 +33,7 @@ function EventCreation() {
       },
       withCredentials: true,
       url: "http://localhost:3001/api/event",
-    }).then((res) => console.log(res));
+    }).then((res) => console.log(res)).catch((error) => (alert("Oops! Something is missing! You must fill out all info, drag the map marker to fill in the address.")));
   };
 
   useEffect(() => {
@@ -86,11 +84,9 @@ function EventCreation() {
                         required
                         fullWidth
                         name="eventLocation"
-                        // label="Event Location"
                         type="eventLocation"
                         id="eventLocation"
                         autoComplete="eventLocation"
-                        onChange={(e) => setEventAddress(e.target.value)}
                         value={JSON.stringify(googleState.address)}
                       />
                     </Grid>
@@ -113,9 +109,7 @@ function EventCreation() {
                           id="eventDate"
                           name="eventDate"
                           autoComplete="eventDate"
-                          label="Event Date"
                           type="datetime-local"
-                          defaultValue="2017-05-24T10:30"
                           className={classes.textField}
                           InputLabel={{
                             shrink: true,
