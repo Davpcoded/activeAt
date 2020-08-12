@@ -5,11 +5,12 @@ const bcrypt = require("bcryptjs");
 
 const db = require("../models");
 
-router.get("/user", function (req, res) {
-  db.User.find({}, function (err, data) {
+router.get("/user/:username", function (req, res) {
+  db.User.findOne({username: req.params.username}, function (err, data) {
     if (err) console.log(err);
     else {
       console.log(data);
+      console.log("Req", req)
       res.send(data);
     }
   });
@@ -65,22 +66,29 @@ router.post("/event", ({ body }, res) => {
       res.json(err);
     });
 });
-router.post("/login", (req, res, next) => {
-  passport.authenticate("local", (err, user, info) => {
-    if (err) throw err;
-    console.log(err);
-    if (!user) res.send("No user Exist");
-    else {
-      req.logIn(user, (err) => {
-        if (err) throw err;
-        console.log(err);
-        res.send("Successfully Authenticated");
-        console.log(req.user);
-        console.log(req.info);
-      });
-    }
-  })(req, res, next);
+router.post("/login", passport.authenticate("local"),
+ (req, res) => {
+   res.json({
+     firstName:req.user.firstName,
+     lastName : req.user.lastName,
+     id: req.user._id,
+   })
+  // passport.authenticate("local"), (err, user) => {
+  //   if (err) throw err;
+  //   console.log("error", err);
+  //   if (!user) res.send("No user Exist");
+  //   else {
+  //     req.logIn(user, (err) => {
+  //       if (err) throw err;
+  //       console.log(err);
+  //       res.json(user);
+  //       console.log(req.user);
+  //       console.log(req.info);
+  //     });
+  //   }
+  // })(req, res, next);
 });
+
 router.post("/signup", (req, res) => {
   db.User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;

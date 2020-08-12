@@ -8,22 +8,23 @@ const db = require("../models");
 
 passport.use(
   new LocalStrategy(
-    {usernameField:"email"},
-    (email, password, done) => {
+    // {usernameField:"email"},
+    (username, password, done) => {
+      console.log("email", username);
       db.User.findOne({
-        email: email
+        email: username
       }, (err, user) => {
         if (err) throw err;
-        if (!user) return done (null, false);
+        if (!user) return done (null, false,{message:"incorrect email"});
+
         bcrypt.compare(password, user.password, (err,result) => {
           if (err) throw err;
           if (result === true) {
             return done(null, user);
           } else {
-            return done (null, false);
+            return done (null, false,{message:"incorrect password"});
           }
         })
-        
       })
     }
   )
@@ -32,13 +33,13 @@ passport.use(
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser((user, cb) => {
-  console.log(user);
+  console.log("serialize user", user);
   cb(null, user.id);
 })
 
 passport.deserializeUser((id, cb) => {
   db.User.findOne({_id: id}, (err, user) => {
-  console.log(user);
+  console.log("deserialize user", user);
   cb(err, obj);
 })
 })
