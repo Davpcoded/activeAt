@@ -7,24 +7,25 @@ import ButtonGroup from "@material-ui/core/ButtonGroup"
 
 const styles = {
   main: {
-    padding: 30,
-    minHeight: 100,
     color: "#fff",
     fontSize: 32,
-    backgroundImage: `url(${Hiking})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
+    fontWeight: 'bold',
   },
-  button: {},
+  letter: {
+      background: "black",
+      margin: 30,
+  },
+  letter2: {
+      background: "black"
+  }
 };
 
 const Jumbo = () => {
   return (
     <Container align="center" style={Object.assign({}, styles.main)}>
       <Grid sm={6}>
-        <div align="center">Active@</div>
-        <div align="center">
+        <div style={Object.assign({}, styles.letter)} align="center">Active@</div>
+        <div style={Object.assign({}, styles.letter2)} align="center">
           Active@ is the app that we are currently creating, we'll put something
           dope here.
         </div>
