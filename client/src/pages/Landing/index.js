@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/index";
 import Swipes from "../../components/Swipes/index";
 import Jumbo from "../../components/Jumbo/";
 import Events from "../../components/Cards/index";
+import ButtonAppBar from "../../components/Navbar/index";
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -22,6 +23,7 @@ export default function Album() {
   return (
     <React.Fragment>
       <CssBaseline />
+      <ButtonAppBar />
         {/* Hero unit */}
       <main className={classes.main}>
         <Swipes />

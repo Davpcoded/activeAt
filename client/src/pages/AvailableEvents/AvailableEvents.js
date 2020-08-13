@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Events from "../../components/Cards/index"
 import Navbar from "../../components/Navbar/index"
 import Message from "../../components/Message/index"
+import Nav from "../../components/Navbar/navbarLoggedin"
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -22,7 +23,7 @@ export default function AvailableEvents() {
     <React.Fragment>
       <CssBaseline />
       <main className={classes.main}>
-        <Navbar />
+        <Nav />
         <Message />
         <Events />
       </main>
