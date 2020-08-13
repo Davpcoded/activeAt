@@ -26,10 +26,13 @@ export default function AvailableEvents() {
       .catch((err) => console.log(err));
   }
 
+  // let playerCount = 0
+
   return (
     <React.Fragment>
       <CssBaseline />
       <main>
+        
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={4}>
             {events.map((event) => (
@@ -45,18 +48,31 @@ export default function AvailableEvents() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {event.eventName}
+                      Event Title: {event.eventName}
                     </Typography>
-                    <Typography>{event.eventType}</Typography>
-                    <Typography>{event.eventDescription}</Typography>
-                    <Typography>{event.markerPositon}</Typography>
-                    <Typography>{event.eventDate}</Typography>
+                    <Typography>Event Category: {event.eventType}</Typography>
+                    <Typography>
+                      Event Description: {event.eventDescription}
+                    </Typography>
+                    <Typography>
+                      Event Date and Time: {event.eventDate}
+                    </Typography>
+                    <Typography>
+                      Address: {event.markerPosition[0].address}
+                    </Typography>
+                    {/* <Typography>
+                          Currently Attending: {playerCount}
+                        </Typography> */}
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
                       View
                     </Button>
-                    <Button size="small" color="primary">
+                    <Button
+                      size="small"
+                      color="primary"
+                      // onClick={playerCount = ++playerCount}
+                    >
                       Join Event
                     </Button>
                   </CardActions>

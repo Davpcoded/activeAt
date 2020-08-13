@@ -2,8 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Hiking from "../../assets/Adventure.jpg";
-import ButtonGroup from "@material-ui/core/ButtonGroup"
+import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 const styles = {
   main: {
@@ -26,8 +25,10 @@ const Jumbo = () => {
       <Grid sm={6}>
         <div style={Object.assign({}, styles.letter)} align="center">Active@</div>
         <div style={Object.assign({}, styles.letter2)} align="center">
-          Active@ is the app that we are currently creating, we'll put something
-          dope here.
+          Join people in your community doing the things you enjoy, while making new friends.
+        </div>
+        <div style={Object.assign({}, styles.letter2)}>
+          Are you ready to get Active@
         </div>
         </Grid>
         <Grid>
