@@ -8,6 +8,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
 import Axios from "axios";
 import Map from "../../components/Google/Map";
+import Nav from "../../components/Navbar/navbarLoggedin"
 
 function EventCreation() {
   const classes = useStyles;
@@ -41,7 +42,8 @@ function EventCreation() {
   }, [googleState])
 
     return (
-    <main>    
+    <main>  
+      <Nav />  
         <Box>
             <div className={classes.heroContent}>
                 <Container maxWidth="md">
