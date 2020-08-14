@@ -18,8 +18,9 @@ function App() {
         <Route exact path="/activity" component={Activitylist} />
         <Route exact path="/eventCreation" component={EventCreation} />
         <Route exact path="/event" component={AvailableEvents} />
-        <Footer />
+        
       </div>
+      <Footer position="sticky"/>
     </Router>
   );
 }

@@ -14,9 +14,12 @@ import Axios from "axios";
 import ButtonAppBar from "../../components/Navbar/index";
 
 const useStyles = makeStyles((theme) => ({
+  body: {
+    backgroundColor: "#fff",
+    },
   paper: {
     marginTop: theme.spacing(8),
-    display: "flex",
+    // display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
@@ -26,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: "100%", // Fix IE 11 issue.
+    height: "100%",
     marginTop: theme.spacing(3),
   },
   submit: {

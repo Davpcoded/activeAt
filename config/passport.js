@@ -40,7 +40,7 @@ passport.serializeUser((user, cb) => {
 passport.deserializeUser((id, cb) => {
   db.User.findOne({_id: id}, (err, user) => {
   console.log("deserialize user", user);
-  cb(err, obj);
+  cb(err, user);
 })
 })
 

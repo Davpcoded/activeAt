@@ -68,7 +68,7 @@ export default function SignInSide() {
     }).then((res) => {
       console.log("console log 1", res);
       sessionStorage.setItem("User", JSON.stringify(res.data));
-      history.push("/");
+      history.push("/event");
     });
   };
 
