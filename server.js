@@ -7,27 +7,23 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://daniel:1Longboard@ds243285.mlab.com:43285/heroku_nmds502s",
-  {
-    useNewUrlParser: true,
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ActiveAt", {
+  useNewUrlParser: true,
+});
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(
+/* app.use(
   cors({
     origin: "http://localhost:3000", // <-- location of the react app were connecting to
     credentials: true,
   })
-);
+); */
 app.use(cookieParser());
 app.use(
   session({

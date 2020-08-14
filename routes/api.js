@@ -6,11 +6,11 @@ const bcrypt = require("bcryptjs");
 const db = require("../models");
 
 router.get("/user/:username", function (req, res) {
-  db.User.findOne({username: req.params.username}, function (err, data) {
+  db.User.findOne({ username: req.params.username }, function (err, data) {
     if (err) console.log(err);
     else {
       console.log(data);
-      console.log("Req", req)
+      console.log("Req", req);
       res.send(data);
     }
   });
@@ -41,7 +41,7 @@ router.post("/user", ({ body }, res) => {
       res.json(dbUser);
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
       res.json(err);
     });
 });
@@ -56,16 +56,17 @@ router.post("/event", ({ body }, res) => {
       res.json(err);
     });
 });
-router.post("/login", passport.authenticate("local"),
- (req, res) => {
-   res.json({
-     firstName:req.user.firstName,
-     lastName : req.user.lastName,
-     id: req.user._id,
-   })
+router.post("/login", passport.authenticate("local"), (req, res) => {
+  console.log(req.user);
+  res.json({
+    firstName: req.user.firstName,
+    lastName: req.user.lastName,
+    id: req.user._id,
+  });
 });
 
 router.post("/signup", (req, res) => {
+  console.log(req.body);
   db.User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;
     console.log(err);
