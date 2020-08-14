@@ -26,15 +26,10 @@ app.use(
 );
 app.use(cookieParser());
 app.use(session({
-  secret:"secretcode"
+  resave: true,
+  secret:"secretcode",
+  saveUninitialized: false,
 }));
-// app.use(
-//   session({
-//     secret: "secretcode",
-//     resave: true,
-//     saveUninitialized: true,
-//   })
-// );
 
 app.use(passport.initialize());
 app.use(passport.session());

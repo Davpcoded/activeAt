@@ -11,12 +11,13 @@
     "react-dom": "^16.6.3",
     "react-geocode": "^0.2.1",
     "react-google-autocomplete": "^1.2.6",
+    "react-google-maps": "^9.4.5",
     "react-map-gl": "^5.2.7",
     "react-native-maps": "^0.27.1",
-    "react-google-maps": "^9.4.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^2.1.1",
-    "react-swipeable-views": "^0.13.9"
+    "react-swipeable-views": "^0.13.9",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",

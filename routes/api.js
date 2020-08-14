@@ -16,16 +16,6 @@ router.get("/user/:username", function (req, res) {
   });
 });
 
-// router.get("/signup", function (req, res) {
-//   db.User.find({}, function (err, data) {
-//     if (err) console.log(err);
-//     else {
-//       console.log(data);
-//       res.send(data);
-//     }
-//   });
-// });
-
 router.get("/login", function (req, res) {
   db.User.find({}, function (err, data) {
     if (err) console.log(err);
@@ -73,20 +63,6 @@ router.post("/login", passport.authenticate("local"),
      lastName : req.user.lastName,
      id: req.user._id,
    })
-  // passport.authenticate("local"), (err, user) => {
-  //   if (err) throw err;
-  //   console.log("error", err);
-  //   if (!user) res.send("No user Exist");
-  //   else {
-  //     req.logIn(user, (err) => {
-  //       if (err) throw err;
-  //       console.log(err);
-  //       res.json(user);
-  //       console.log(req.user);
-  //       console.log(req.info);
-  //     });
-  //   }
-  // })(req, res, next);
 });
 
 router.post("/signup", (req, res) => {
