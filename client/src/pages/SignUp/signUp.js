@@ -16,7 +16,7 @@ import ButtonAppBar from "../../components/Navbar/index";
 const useStyles = makeStyles((theme) => ({
   body: {
     backgroundColor: "#fff",
-    },
+  },
   paper: {
     marginTop: theme.spacing(8),
     // display: "flex",
@@ -61,7 +61,7 @@ export default function SignUp() {
         zipCode: registerZipCode,
       },
       /* withCredentials: true, */
-      url: "http://localhost:3001/api/signup",
+      url: "/api/signup",
     }).then((res) => console.log(res));
   };
 

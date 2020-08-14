@@ -7,13 +7,17 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 80;
 const app = express();
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ActiveAT", {
-  useNewUrlParser: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://daniel:1Longboard@ds243285.mlab.com:43285/heroku_nmds502s",
+  {
+    useNewUrlParser: true,
+  }
+);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -25,11 +29,13 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(session({
-  resave: true,
-  secret:"secretcode",
-  saveUninitialized: false,
-}));
+app.use(
+  session({
+    resave: true,
+    secret: "secretcode",
+    saveUninitialized: false,
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());

@@ -64,7 +64,7 @@ export default function SignInSide() {
         password: loginPassword,
       },
       withCredentials: true,
-      url: "http://localhost:3001/api/login",
+      url: "/api/login",
     }).then((res) => {
       console.log("console log 1", res);
       sessionStorage.setItem("User", JSON.stringify(res.data));
