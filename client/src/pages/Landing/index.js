@@ -1,6 +1,7 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from "@material-ui/core/styles";
+import Navbar from "../../components/Navbar/index";
 import Swipes from "../../components/Swipes/index";
 import Jumbo from "../../components/Jumbo/";
 import Events from "../../components/Cards/index";

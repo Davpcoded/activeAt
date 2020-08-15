@@ -16,7 +16,7 @@ import ButtonAppBar from "../../components/Navbar/index";
 const useStyles = makeStyles((theme) => ({
   body: {
     backgroundColor: "#fff",
-  },
+    },
   paper: {
     marginTop: theme.spacing(8),
     // display: "flex",
