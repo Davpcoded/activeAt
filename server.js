@@ -11,27 +11,25 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ActiveAt", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ActiveAT", {
   useNewUrlParser: true,
 });
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-/* app.use(
-  cors({
-    origin: "http://localhost:3000", // <-- location of the react app were connecting to
-    credentials: true,
-  })
-); */
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000", // <-- location of the react app were connecting to
+//     credentials: true,
+//   })
+// );
 app.use(cookieParser());
-app.use(
-  session({
-    resave: true,
-    secret: "secretcode",
-    saveUninitialized: false,
-  })
-);
+app.use(session({
+  resave: true,
+  secret:"secretcode",
+  saveUninitialized: false,
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());

@@ -33,7 +33,7 @@ function EventCreation() {
         markerPosition: googleState
       },
       withCredentials: true,
-      url: "http://localhost:3001/api/event",
+      url: "/api/event",
     }).then((res) => console.log(res)).catch((error) => (error, alert("Oops! Something is missing! You must fill out all info, drag the map marker to fill in the address.")));
   };
 
