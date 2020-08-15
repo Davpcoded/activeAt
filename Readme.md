@@ -1,68 +1,83 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Active@](https://active-at.herokuapp.com/)
 
-## Available Scripts
+Cameron DeChand, Daniel Villarroel, Darryl Williams, Nathan Bowdish, Svetlana Demkovich
 
-In the project directory, you can run:
+![image](https://user-images.githubusercontent.com/61451081/90306025-d5f36d80-de7d-11ea-9a05-c2dd1d99c7b5.png)
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Active@ is a meetup site for people who want more people to join them in an activity.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+- [User Story](#user-story)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Technologies](#technologies)
 
-### `npm run build`
+- [NPM Packages](#npm-packages)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Usage](#Usage)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [Presentation](#presentation)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Deployed Application](#deployed-application)
 
-### `npm run eject`
+- [GitHub Repo](#github-repo)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [Directions for Future Development](#directions-for-future-development)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## User Story
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+As a USER,
+I can create an event for people to sign up and join them at the predetermined place and time.
+If a user does not want to create an event, they can just sign up for one
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Technologies  
+ 
+HTML    
+CSS    
+Material-UI  
+Javascript  
+Node.js    
+Express    
+MongoDB  
+Mongoose   
+React  
+Google Maps API   
+Swipeable-Views
 
-## Learn More
+## Npm Packages  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Axios  
+React-swipeable-views  
+React-geocode  
+React-google-maps  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## APIs  
 
-### Code Splitting
+Google Maps API  
+    
+## Usage 
+* Navigate to https://active-at.herokuapp.com/. On the Home page, you can register your a new account or login to the existing one.
+* As a new user click on Signup to register and create an account. Registered user Login to user account.
+* Once user login they  will see available events in their area.
+* User can join the existing event
+* User can also create a new event
+* When user is finished, log out  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Presentation  
 
-### Analyzing the Bundle Size
+[Presentation](https://docs.google.com/presentation/d/1dwb7qeH-5QaWvuFLnj2iN0fwHP5WWrVaqkxdtW-Rkus/edit?usp=sharing)  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Deployed Application:  
 
-### Making a Progressive Web App
+https://active-at.herokuapp.com/  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## GitHub Repo:
 
-### Advanced Configuration
+https://github.com/Davpcoded/activeAt
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Directions for Future Development
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+--Create user's account  
+--Make it more interactive 
